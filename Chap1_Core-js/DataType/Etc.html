@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 논리 타입(boolean)
+        var logical = false;
+        logical = true;
+
+        // JS는 false는 0으로 해석하고 true는 0이 아닌 모든 것 
+        var apple = 5;
+        if (apple) {
+            console.log('사과가 ' + apple + '개 있습니다.');
+        } else {
+            console.log('사과가 하나도 없습니다');
+        }
+
+        // null
+        var banana = '바나나';
+        banana = null;
+        console.log(typeof banana);
+        console.log(banana);
+        // null : 선언된 값을 내가 지운 것 (값이 없음)
+
+        var i ;
+        console.log(typeof i);
+        // undefined : 한번도 선언되지 않은 값 (값이 없음)
+
+    </script>
+</body>
+</html>
