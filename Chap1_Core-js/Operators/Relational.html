@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 비교 연산자
+
+        var a = 5,
+            b = '5';
+        console.log(a == b);
+        // true
+        console.log(a === b);
+        // false
+
+        // JS는 동등비교 연산이 2개 있음 
+        // == : 타입이 일치하지 않으면 일치하게 만들어서 비교
+        // === : 타입까지 일치해야 비교 가능
+
+        // 일치 비교에서는 Nan은 자신과 일치하지 않는 유일한 값 
+        console.log(Nan === Nan);
+
+        // 문자열 비교 
+        console.log('-------------------------------------');
+
+        // 대소 비교 
+        console.log('apple' === 'APPLE');
+        // false
+    </script>
+
+</body>
+
+</html>

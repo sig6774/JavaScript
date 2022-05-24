@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 값을 랜덤하게 지정 
+        // 연산도 랜덤 지정 (+, - , *)
+        // 반복문 사용 
+        var count = 0;
+        var notcount = 0;
+
+        while (1) {
+            var m = Math.floor(Math.random() * 20 + 1);
+            var m1 = Math.floor(Math.random() * 20 + 1);
+            var m2 = Math.floor(Math.random() * 3);
+            var operator;
+            var result = 0;
+
+
+            if (m2 == 0) {
+                operator = '+';
+                var question = prompt(m + operator + m1 + '= ???');
+                var result = (m + m1);
+
+            } else if (m2 == 1) {
+                operator = '-';
+                var question = prompt(m + operator + m1 + '= ???');
+                var result = (m - m1);
+            } else if (m2 == 2) {
+                operator = '*';
+                var question = prompt(m + operator + m1 + '= ???');
+                var result = (m * m1);
+            }
+
+            if (question == result) {
+                count += 1;
+            } else {
+                notcount += 1;
+            }
+            if (question === '그만') {
+                notcount -= 1;
+                alert('맞은 개수 : ' + count + '틀린 개수 : ' + notcount);
+                break;
+            }
+
+
+
+        }
+    </script>
+</body>
+
+</html>

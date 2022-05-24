@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        var week = ['월', '화', '수', '목', '금', '토', '일'];
+
+        // for-of는 java의 for each와 유사하며 배열의 값을 얻을 때 사용 (객체에서는 사용 X)
+        for (var day of week) {
+            // 우항 : 배열이름 좌항 : 객체 안의 값을 담을 변수 이름
+            console.log(day + '요일');
+        }
+
+        console.log('=====================================================');
+
+        // for-in은 배열의 인덱스 번호를 알고 싶을 때 사용
+        for(var day in week){
+            console.log(day + '요일');
+        }
+
+    </script>
+</body>
+
+</html>

@@ -12,14 +12,15 @@
 <body>
 
     <script>
-        var admin;
-        var myName;
-        myName = 'John';
-        admin = myName;
-        console.log(admin);
+        var score = 70;
+        var result = (score >= 60 ? '합격' : '탈락');
+        // 삼항 연산자 
+        console.log('시험결과 : ' + result);
 
-        var planet = 'Earth';
-        var user_name = '문경록';
+
+        var money = +prompt('돈 입력');
+        var result = (money >= 5000 ? '김치찌개' : '라면');
+        alert(result);
     </script>
 
 </body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 배열의 생성 
+        var fruits = ['딸기', '포도', '복숭아', '사과'];
+
+        // 배열의 길이 확인 
+        console.log('배열의 길이 : ' + fruits.length);
+
+        // 배열 데이터 수정 
+        fruits[2] = '수박';
+
+        // 배열 데이터 추가 
+        fruits[4] = '파인애플';
+            // java에서는 안되지만 JS에서는 array 길이 추가 
+
+        // 배열 데이터 확인 
+        console.log(fruits);
+
+        // 배열 마지막 추가 (인덱스 모를 때 )
+        fruits[fruits.length] = '맹고';
+        
+        // 배열 요소 참조 
+        var apple = fruits[3];
+
+        // 배열의 반복문 처리 
+        for (i = 0; i < fruits.length; i++){
+            console.log(`${i+1}번째 과일 : ${fruits[i]}`);
+        }
+        
+    </script>
+</body>
+
+</html>
