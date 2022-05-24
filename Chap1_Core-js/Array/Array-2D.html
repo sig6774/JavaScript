@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 학생들의 4과목 점수(국영수탐)
+        var kim = [2, 6, 3, 5];
+        var lee = [100, 89, 55, 67];
+        var park = [24, 35, 46, 21];
+        var student = [kim, lee, park];
+
+        var ourstudentscores = [
+            [2, 6, 3, 5],
+            [100, 89, 55, 67],
+            [24, 35, 46, 21]
+        ]
+
+        console.log(ourstudentscores);
+        console.log(ourstudentscores[2]);
+        // 3번째 학생의 전체 점수 
+        console.log(ourstudentscores[2][2]);
+        // 3번째 학생의 3번째 점수 
+
+        // 반 평균 
+        var av = 0;
+        for (var student of ourstudentscores) {
+            var scores = 0;
+            for (var score of student) {
+                scores += score;
+            }
+            av += (scores / student.length);
+            // 한 학생의 평균점수 
+        }
+        var totalav = av / ourstudentscores.length;
+        // 반 전체 평균
+
+        console.log('우리반 평균 : ' + totalav + '점');
+    </script>
+</body>
+
+</html>

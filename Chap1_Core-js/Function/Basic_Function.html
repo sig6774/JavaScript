@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 함수 정의 
+        function calcTotal(x) {
+            console.log('함수 호출!');
+
+            var total = 0;
+
+            for (var n = 1; n <= x; n++) {
+                total += n;
+            }
+            return total;
+        }
+
+        function add(n1, n2) {
+            return n1 + n2;
+        }
+
+        // 함수 리터럴 
+        var add2 = function (n1, n2) {
+            return n1 + n2;
+        }
+        console.log(add2(10, 20));
+
+        // 화살표 함수 
+        var add3 = (n1, n2) => {
+            return n1 + n2;
+        }
+        console.log(add3(20, 30));
+
+        // 함수 호출 
+        console.log(calcTotal(20));
+
+        var result = calcTotal(10000);
+        console.log(result);
+
+        console.log(add(calcTotal(10), calcTotal(5)));
+        
+        // 함수를 변수에 할당할 수 있음 
+        var ct = calcTotal;
+        var result = ct(10);
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // splice() 
+        var foods = ['마라탕', '마라샹궈', '양꼬치'];
+
+        var delFood = foods.splice(1, 2);
+        console.log(delFood);
+        console.log(foods);
+
+        foods.splice(0, 1, '치킨', '파슷하');
+        // 0번 인덱스부터 1개를 지우고 치킨, 파스타 추가
+        console.log(foods);
+
+        foods.splice(2, 0, '피자');
+        // 2번 인덱스부터 0개를 지우고 피자를 추가(위치를 지목해서 추가할 수 있음)
+
+        foods.splice(2);
+        console.log(foods);
+        // 개수를 지정하지 않으면 시작 인덱스 뒤에 있는 요소 모두 삭제 
+
+        foods.push('보쌈', '닭발', '대창');
+
+        var input = '보쌈';
+        var idx = foods.indexOf(input);
+        // 인덱스 값 가져옴
+
+        if (idx >= 0) {
+            foods.splice(idx, 1);
+            // idx부터 값 하나만 삭제 
+            console.log('삭제완료');
+        } else {
+            
+            console.log('데이터가 없습니다.');
+        }
+    </script>
+
+</body>
+
+</html>

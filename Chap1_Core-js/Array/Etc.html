@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foods = ['마라탕', '초밥', '오뎅', '돼지고기', '한우'];
+
+        // indexOf()
+        var idx = foods.indexOf('초밥');
+
+        var result = foods.includes('돼지고기');
+        console.log('탐색 결과 : ' + result);
+
+        console.log('===========================================');
+
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        // slice)_
+        var sliced_arr = arr.slice(3, 7);
+        console.log(sliced_arr);
+        // 3,4,5,6 으로 slicing됨 
+        // 3부터 7미만 
+
+        // reverse()
+        var copyArr = arr.slice(0);
+        copyArr.reverse();
+        console.log(copyArr);
+
+        // join()
+        var foodStr = foods.join();
+        // 배열의 요소를 문자열로 연결
+        console.log(foodStr)
+
+        console.log('=====================================');
+        
+
+        // concat() 
+        var arr1 = [10, 20, 30];
+        var arr2 = [100, 300, 500];
+        var concatArr = arr1.concat(arr2);
+        console.log(concatArr);
+    </script>
+
+</body>
+
+</html>
