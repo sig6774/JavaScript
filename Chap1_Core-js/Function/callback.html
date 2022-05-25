@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // callback 
+        function showNumbers(n, func) {
+            for (var i = 1; i <= n; i++) {
+                func(i);
+                // 매개값으로 받은 함수를 불러와서 연산 진행
+            }
+        }
+
+        function a(i) {
+            if (i % 2 === 0) {
+                console.log(i);
+            }
+        }
+        showNumbers(10, a);
+        // showNumbers의 매개값으로 함수가 전달됨 
+        // 매개값이 10이 들어왔고 2의 배수가 나올 때 값을 출력하는 함수가 있으니 
+        // 10이하의 2의 배수가 출력됨
+
+        function plusMinus(a, b, callback) {
+            callback(a + b, a - b)
+        }
+
+        function b(res1, res2) {
+            console.log(res1);
+            console.log(res2);
+        }
+
+        plusMinus(10, 20, b);
+        // 함수의 매개값으로 다른 함수를 사용 
+    </script>
+    
+</body>
+
+</html>

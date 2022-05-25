@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 약수의 개수를 출력 
+        // 반복문 사용해서 해당 값이 나눠지면 통과 
+        function divisor(num) {
+            var a = [];
+
+            for (var i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    // num과 나누어 떨어지면 약수
+                    a.push(i);
+                    // 값을 넣어주기 
+                }
+            }
+            console.log(a);
+            return a.length;
+        }
+        var r = divisor(72);
+        console.log('약수의 개수 : ' + r);
+    </script>
+</body>
+
+</html>

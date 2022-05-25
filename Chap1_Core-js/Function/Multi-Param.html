@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 매개값 2개 
+        function add(n1, n2) {
+            return n1 + n2;
+        }
+
+        // n개의 정수의 합을 구하는 함수 
+        function addAll(name, ...numbers) {
+            console.log(name + '님 안녕하세요');
+            console.log(numbers);
+            var total = 0;
+            for (var num of numbers) {
+                total += num;
+            }
+            return total;
+        }
+
+        var result = addAll('하잉', 10, 20, 30, 40, 50, 60, 70, 80, 90, 100);
+        // numbers는 ...을 붙였으므로 가변인수라는 뜻
+        // numbers라는 변수가 배열로 만들어줌 
+        console.log(result);
+    </script>
+
+</body>
+
+</html>

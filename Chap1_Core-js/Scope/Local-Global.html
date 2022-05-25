@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var x = 'global x';
+
+        function outer(x) {
+            var y = 'outer local y';
+            console.log('x : ' + x);
+            console.log('y : ' + y);
+            // x는 전역변수이므로 함수 안에서도 참조 가능 
+
+            function inner() {
+                var x = 'inner local x';
+                var z = 'inner local z';
+                console.log(x);
+                console.log(y);
+                console.log(z);
+                // x는 inner local x가 출력 
+            }
+            inner();
+            // outer()안에서는 inner()는 반드시 호출
+        }
+
+        outer('outer local x');
+        // outer() 안에 outer local x를 지역 변수 x에 넣어줌
+
+        console.log(x);
+        // 여기서 global x가 출력 
+        // 왜냐면 outer와 inner안에서 선언된 x변수는 지역변수이므로 함수가 종료되면 
+        // 메모리에서 사라지기 때문에 남아있는 전역변수가 출력
+    </script>
+</body>
+
+
+</html>

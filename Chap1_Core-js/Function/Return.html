@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // void함수는 단독 호출해서 사용하며 다른 함수의 인자로 전달이 불가
+        function greetings(nickname) {
+            var bad_nick = ['멍충이', '바보', '쓰레기']
+            if (bad_nick.includes(nickname)) {
+                console.log('나쁜말은 하지 마세요!')
+                return; // 함수 강제 종료 
+            }
+            console.log(nickname + '님 안녕하세요!');
+        }
+
+        greetings('뚜잇뚜잇');
+        greetings('쓰레기');
+
+        function operateAll(n1, n2) {
+            var li = [n1 + n2, n1 - n2, n1 * n2, n1 / n2];
+            return li;
+        }
+
+        var results = operateAll(10, 2);
+        console.log(results);
+        console.log(results[2]);
+    </script>
+</body>
+
+</html>

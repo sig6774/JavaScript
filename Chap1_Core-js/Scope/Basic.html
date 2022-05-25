@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function foo(y){
+            var x = 'local';
+            console.log('x : ' + x);
+            console.log('y : ' + y);
+        }
+
+        foo('parameter');
+        console.log('=================================='); 
+        // x와 y는 함수 foo에서 선언된 함수이므로 함수 밖에서는 활용될 수 없음
+        // 왜냐면 함수에서 정의된 변수들은 함수가 끝나면 모두 없어지기 때문
+        // 이러한 변수를 지역변수라고 함 
+
+        // console.log('x : ' + x);
+        // console.log('y : ' + y);
+
+    </script>
+</body>
+
+</html>

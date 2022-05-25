@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // begin ~ end 까지의 총합을 구해주는 함수 
+        function clacRangeTotal(begin, end) {
+            var total = 0;
+
+            console.log(arguments);
+            console.log('길이 : ' + arguments.length);
+            // 함수에 전달되는 매개 값들은 arguments 객체에서 전부 확인 가능
+            // 매개변수를 초과하는 값도 JS는 함수안에서 활용할 수 있음
+            // 즉, JS에서 매개변수는 큰 의미가 없음 
+
+            for (var i = begin; i <= end; i++) {
+                total += i;
+            }
+            return total;
+        }
+        var totalnum = clacRangeTotal(1, 10);
+        console.log('실행 결과 값 : ' + totalnum);
+
+        var totalnum = clacRangeTotal(1, 10, 52, 30, 534);
+        console.log('실행 결과 값 : ' + totalnum);
+        // JS의 함수는 매개변수의 개수를 다르게 주더라도 작동은 하지만 굳이 이렇게 사용하지 않아도 됨
+
+        function selectRandomFood() {
+            var rn = Math.random();
+            return rn > 0.5 ? '짜장면' : '짬뽕';
+        }
+
+        console.log('랜덤 음식 : ' + selectRandomFood());
+
+        function multiply(n1, n2) {
+
+            if (typeof n1 !== 'number' || typeof n2 !== 'number') {
+                console.log('숫자로 전달하세요.');
+                return;
+                // 매개변수로 숫자만 오도록 
+            }
+            return n1 * n2;
+        }
+        var res = multiply(3, '메롱');
+        console.log(res);
+
+
+        // 매개변수의 default 값 지정 
+        function sayHello(language = '한국어') {
+            if (language === '한국어') {
+                console.log('안녕하세요!');
+            } else if (language === '영어') {
+                console.log('hello');
+            } else if (language === '일본어') {
+                console.log('곤니찌와');
+            }
+        }
+        sayHello();
+        // 매개값을 적지 않아도 default값을 지정했기 때문에 동작
+    </script>
+</body>
+
+</html>

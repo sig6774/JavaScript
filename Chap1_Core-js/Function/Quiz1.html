@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function cal(...numbers) {
+            // 가변변수
+            var total = 0;
+            var avg = 0;
+            for (var n of numbers) {
+                total += n;
+            }
+            // total 구하기 
+
+            avg = total / numbers.length;
+            // 평균 구하기 
+
+            var con = {
+                'total': total,
+                'avg': avg
+            };
+            // 여러개의 값을 하나의 값으로 리턴하기 위해 사용
+            return con;
+        }
+
+        var t = cal(1, 2, 3, 4, 5);
+        console.log(t);
+        console.log('total값은:' + t['total']);
+    </script>
+</body>
+
+</html>
