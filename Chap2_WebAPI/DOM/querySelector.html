@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="fruits">
+        <li class="fruit apple">APPLE</li>
+        <li class="fruit banana">BANANA</li>
+        <li class="fruit grape">GRAPE</li>
+    </ul>
+
+    <script>
+        // css의 선택자의 개념이 잡혀있어야 사용 가능 
+        const $elem = document.querySelector('.banana');
+        // css의 선택자 지정
+        // class는 .으로 시작 id는 #으로 시작
+        console.log($elem);
+
+        const $ele = document.querySelector('#fruits > li:nth-child(2)');
+        // fruits 안에 직속 자식인 li의 2번째 선택 
+        console.log($ele);
+
+        const $elee = document.querySelector('li[class="fruit banana"]')
+        console.log($elee);
+
+        const $elew = document.querySelector('li.apple + li');
+        // li에 이름이 apple인 것에 옆에 있는 li를 선택 : banana 
+        console.log($elew);
+
+        $elem.style.color = 'yellow';
+
+
+        const $elements = document.querySelectorAll('#fruits > li');
+        // queryselsectorall은 모두 가져옴
+        // fruits안에 있는 li 모두 가져와라라는 뜻
+        // 유사배열 객체 형태 
+        console.log($elements);
+
+        for (let $ele of $elements) {
+            $ele.style.background = 'red';
+        }
+        // 유사 배열 객체이므로 반복문을 활용하여 style 지정 가능 
+
+        const $test = document.querySelectorAll('.peach');
+        console.log($test);
+        // 없는 선택자 지목 시 null이 오지 않고 빈 노드 리스트 객체가 옴
+    </script>
+
+</body>
+
+</html>

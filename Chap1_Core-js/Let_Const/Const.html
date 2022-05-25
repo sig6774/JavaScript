@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const x = '헬로';
+        console.log(x);
+
+        // x = '안메롱';
+        // 값의 변경이 불가능 
+
+        // const와 객체(객체, 배열, 함수 )
+        const person = {
+            name: 'Moon',
+            age: 27
+        };
+        person.name = 'Park';
+        console.log(person.name);
+        // const 변수에는 객체가 들어갈 수 없기 때문에 주소값이 저장 
+        // const 변수에 주소값이 저장되어 있기 때문에 주소만 변경되지 않으면 됨 
+        // const 변수를 사용해도 객체의 내용은 바꿀 수 있고 주소는 바꿀 수 없음
+
+        // 객체 자체를 변경 (주소값 변경 )
+        // 안되는 코드 
+        // person = {
+        //     name : 'lee',
+        //     age : 30
+        // }
+        // 이렇게 작성하면 const변수인 person의 주소값이 바뀌기 때문에 안됨
+    </script>
+</body>
+
+</html>

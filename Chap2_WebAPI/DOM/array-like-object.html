@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul>li {
+            font-size: 30px;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ul#fruits>li.red*4 -->
+    <ul id="fruits">
+        <li class="red">APPLE</li>
+        <li class="red">BANANA</li>
+        <li class="red">GRAPE</li>
+        <li class="red">PEACH</li>
+    </ul>
+
+    <script>
+        // 유사 배열 NodeList 리턴 
+        const $elements = document.querySelectorAll('.red');
+
+        // 유사 배열 HTMLCollection 리턴 
+        const $elements1 = document.getElementsByClassName('red');
+
+        // let $ele = $elements.pop();
+        // 배열의 함수인 pop() 사용할 수 없음 
+
+        // 유사배열 객체를 배열처럼 제어할 때는 순수 배열로 변경해서 작성 
+        // const realArray = Array.from($elements1);
+        const realArray = [...$elements];
+        // Array.from();으로 유사 배열 객체를 진짜 배열로 변경할 수 있고 [...유사배열객체]를 통해서도 변경 가능
+
+        console.log(realArray);
+
+        let $ele = realArray.pop();
+        console.log($ele);
+        // 배열로 변환되어 있는 것을 확인
+
+        for (let i = 0; i < realArray.length; i++) {
+            realArray[i].className = 'blue';
+            // 반복문을 이용해서 classname을 바꿔줌
+        }
+    </script>
+
+</body>
+
+</html>

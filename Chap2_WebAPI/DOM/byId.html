@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li id="apple">APPLE</li>
+        <li id="banana">BANANA</li>
+        <li id="grape">GRAPE</li>
+        <li id="pine">PINEAPPLE</li>
+    </ul>
+
+    <script>
+        const $apple = document.getElementById('apple');
+        // 관례적으로 노드변수는 이름 앞에 $기호를 붙임
+        // $apple이라는 변수에 id를 활용하여 요소를 가져올 수 있음 
+        // console.log($apple);
+        console.log($apple.attributes[0]);
+
+        // 자바 스크립트를 이용해서 태그에 접근해서 요소를 가져올 수 있네 
+
+
+        // JS를 이용해서 태그에 접근해서 style을 바꿀 수 있음
+        $apple.style.fontSize = '40px';
+        document.body.style.background = 'tomato';
+
+        const $item = document.getElementById('banana');
+        console.log($item);
+        // 없는 id를 지목하면 null이 옴
+        if ($item !== null) {
+            $item.style.color = 'yellow';
+        }
+
+        // 요소에 id를 부여할 시 아이디 값으로 자동 전역변수가 생성 
+        grape.style.color = 'violet';
+        // getelement안했는데도 요소에 id값을 부여했을 때에는 id값이 자동으로 전역변수가 되네 
+        
+    </script>
+</body>
+
+</html>

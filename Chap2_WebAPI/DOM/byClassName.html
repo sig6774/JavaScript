@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="fruits">
+        <li class="fruit apple">APPLE</li>
+        <li class="fruit banana">BANANA</li>
+        <li class="fruit grape">GRAPE</li>
+    </ul>
+
+    <script>
+        const $elements = document.getElementsByClassName('fruit');
+        // 클래스 이름은 겹칠 수 있으므로 
+        console.log($elements);
+
+        const $banana = document.getElementsByClassName('banana');
+        console.log($banana);
+        $banana[0].style.color = 'yellow';
+        // $banana는 유사객체로 반환되었기 때문에 객체 요소 지정하는 [인덱스]을 통해서 접근
+    </script>
+</body>
+
+</html>

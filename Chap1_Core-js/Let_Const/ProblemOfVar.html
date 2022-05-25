@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var의 문제점
+        // 1. 중복 선언 허용 
+        // 동일 이름 변수가 선언된 지 모르고 변수를 중복 선언하면 
+        // 의도치 않게 변수의 값이 변경되는 부작용 발생 
+        var x = 1;
+        var x = 100;
+
+        console.log(x);
+        // 100 출력 
+
+        // 2. 블록 레벨 스코프 지원하지 않음 
+        // var 키워드는 함수만 블록으로 지원하기 때문에 함수 안에서 생성된 변수만 지역변수라고 취급 
+        // 함수 외의 블록들에서는 모두 전역변수로 일괄 적용 
+        var i = 1;
+        for (var i = 0; i < 10; i++) {}
+
+        console.log('i값은 : ' + i);
+        // 10 출력 
+        // 반복문에서 동일한 변수인 i로 되어 있기 때문에 i는 10으로 출력 
+
+        console.log('==============================================');
+
+        var flag = true;
+        if (flag) {
+            var temp = '메롱';
+        }
+
+        console.log(temp);
+        // java나 c++은 temp는 출력 x (tempt는 지역변수라서) 하지만 js는 temp 출력 O
+        // js는 함수안에 있는 변수만 지역변수라고 취급
+
+        // 3. 변수 호이스팅 
+        // var키워드로 변수를 선언하면 호이스팅에 의해 변수 선언문이 자동으로 맨 위로 
+        // 끌어올려진 것처럼 동작 흐름 해석에 방해되고 가독성과 유지보수성을 떨어트림
+
+        y = 100;
+        console.log('y: ' + y);
+        var y;
+        // 이게 되네...
+    </script>
+</body>
+
+</html>
