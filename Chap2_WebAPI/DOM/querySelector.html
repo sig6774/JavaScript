@@ -24,6 +24,7 @@
 
         const $ele = document.querySelector('#fruits > li:nth-child(2)');
         // fruits 안에 직속 자식인 li의 2번째 선택 
+        // quertselector는 요소 하나만 반환 
         console.log($ele);
 
         const $elee = document.querySelector('li[class="fruit banana"]')
@@ -37,7 +38,7 @@
 
 
         const $elements = document.querySelectorAll('#fruits > li');
-        // queryselsectorall은 모두 가져옴
+        // queryselsectorall은 유사 배열 객체(nodelist)를 반환 
         // fruits안에 있는 li 모두 가져와라라는 뜻
         // 유사배열 객체 형태 
         console.log($elements);

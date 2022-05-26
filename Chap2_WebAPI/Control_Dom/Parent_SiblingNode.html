@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul id="fruits">
+            <li class="apple">APPLE</li>
+            <li class="banana">BANANA</li>
+            <li class="grape">GRAPE</li>
+        </ul>
+    </div>
+
+    <table id="board">
+        <tr>
+            <td>A</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>D</td>
+        </tr>
+    </table>
+
+    <script>
+        const $banana = document.querySelector('.banana');
+
+        // 부모 노드 탐색 
+        const $parent = $banana.parentNode;
+        console.log($parent);
+
+        const $div = $banana.parentNode.parentNode;
+        // div는 banana요소의 부모의 부모이므로 
+        console.log($div);
+
+
+        
+        // 이전 형제노드 탐색 
+        const $prev = $banana.previousElementSibling;
+        console.log($prev);
+
+        const $next = $banana.nextElementSibling;
+        console.log($next);
+
+        // next의 다음 형제노드가 없어서 null이 옴
+        const $next2 = $next.nextElementSibling;
+        console.log($next2);
+
+        const $board = document.getElementById('board');
+        console.log($board.children);
+        // table 태그는 자식 태그로 tbody라는 태그를 자동으로 삽입하기 때문에 
+        // 다른 요소를 가져오기 위해서는 더 밑으로 내려가야함
+
+        const $tbody = $board.children;
+        console.log($tbody[0].children);
+        // 이제는 tr두개가 뜸
+    </script>
+</body>
+
+</html>

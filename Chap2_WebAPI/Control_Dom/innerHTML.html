@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="fruits">
+        <li class="apple">Apple</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+        console.log($fruits.innerHTML);
+        // 태그가 모두 포함됨
+
+        // 노드 추가 
+        $fruits.innerHTML += '<li class="banana">BANANA</li>';
+        ''
+        // li의 apple 뒤에 붙임
+
+        $fruits.innerHTML = '';
+
+        console.log(!!$fruits.children.length);
+
+        /*
+            innerHTML로만 노드를 제어하면 안됨 
+            왜냐면 보안과 성능에 문제가 있음 
+            그래서 HTML 변환이 필요한 문자열에만 사용하는게 좋음
+        */
+    </script>
+</body>
+
+</html>
