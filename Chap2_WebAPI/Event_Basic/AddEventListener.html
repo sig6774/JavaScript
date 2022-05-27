@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='btn'>Click</button>
+
+    <script>
+        const $btn = document.getElementById('btn');
+
+        function hello() {
+            alert('hello');
+        }
+
+        function c() {
+            alert('world');
+        }
+
+        function e() {
+            alert('bye');
+        }
+
+        $btn.addEventListener('click', hello);
+        $btn.addEventListener('click', c);
+        $btn.addEventListener('click', e);
+        // 하나의 요소에 여러개의 event를 넣을 수 있음 
+
+        // 이벤트 핸들러 제거 
+        $btn.removeEventListener('click', c);
+        // click이 발생했을 때 c이벤트 핸들러는 지움
+    </script>
+</body>
+
+</html>

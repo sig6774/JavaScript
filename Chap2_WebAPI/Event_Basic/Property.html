@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">클릭하세요</button>
+    <button id="btn2">마우스를 올리세요</button>
+    <button id="btn3">마우스를 치우세요</button>
+
+    <script>
+        // 이벤트 핸들러 (특정 이벤트에서 실행시키고자 하는 것)
+        function hello() {
+            alert('hello');
+        }
+
+        const $btn = document.getElementById('btn');
+        const $btn2 = document.getElementById('btn2');
+        const $btn3 = document.getElementById('btn3');
+
+        $btn.onclick = hello;
+        // $btn에 onclick이라는 event가 발생한다면 hello() 함수를 불러옴
+
+        $btn2.onmouseenter = function () {
+            alert('하윙');
+        }
+
+        $btn3.onmouseleave = () => alert('신기하고만~');
+
+        // 핸들러 제거 
+        $btn3.onmouseleave = null;
+    </script>
+
+</body>
+
+</html>

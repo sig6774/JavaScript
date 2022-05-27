@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #fruits {
+            list-style: none;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        #fruits li {
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="fruits">
+        <li id="apple">APPLE</li>
+        <li id="banana">BANANA</li>
+        <li id="grape">GRAPE</li>
+        <li id="strawberry">STRAWBERRY</li>
+        <li id="tomato">TOMATO</li>
+    </ul>
+
+    <div>선택된 과일 : <em class='msg'>apple</em></div>
+
+    <script>
+        // li가 많기 때문에 각각 event를 걸어주는 것을 비효율적
+        const $fruits = document.getElementById('fruits');
+        const $msg = document.querySelector('.msg');
+
+        // 이벤트 핸들러 함수 
+        function activate(event){
+
+            // 이벤트 발생 타깃이 특정 요소인지 검증 
+            console.log('메롱~');
+
+        }
+
+        // ul에 event를 등록 (li가 많아서 하나씩 걸어주기 귀찮음 )
+        $fruits.addEventListener('click', activate);
+
+    </script>
+</body>
+
+</html>

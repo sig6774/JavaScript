@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <p class="msg"></p>
+
+    <script>
+        const $input = document.querySelector('input');
+        const $msg = document.querySelector('.msg');
+
+        function up(event) {
+            // console.log(event.key);
+            // event가 발생했을 때의 key 값이 무엇인지
+            if (event.key === 'Enter') {
+                // enter 키를 땔 때 
+                $msg.textContent = event.target.value;
+                // event의 값을 $msg에 값을 넣어줌 
+
+                event.target.value = '';
+                // 새로운 내용을 작성하기 위해 값을 비워줌
+            } else if (event.key === 'Escape') {
+                // esc 눌렀을 때 지워줌
+                $msg.textContent = '';
+
+            }
+
+        }
+        $input.addEventListener('keyup', up);
+        // keyboard를 누르고 땔 때 event발생
+    </script>
+</body>
+
+</html>

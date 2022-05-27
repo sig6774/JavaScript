@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        아무곳이나 클릭하세요.
+    </p>
+
+    <em class="message"></em>
+    <!-- 강조 태그  -->
+
+    <script>
+        const $em = document.querySelector('.message');
+        
+        // 문서 전체에 이벤트 핸들러 등록 
+        function a(event) {
+            console.log(event);
+            $em.textContent = `x : ${event.clientX}, y: ${event.clientY}`;
+        }
+        document.addEventListener('click', a);
+
+
+        // document.addEventListener('click', (event) => {
+        //     console.log(event);
+        //     $em.textContent = `x : ${event.clientX}, y : ${event.clientY}`;
+        // } )
+
+        // event 객체 
+        // 이벤트가 발생하면 이벤트에 대한 다양한 정보가 들어있는 이벤트 객체가 동적으로 생성 
+        // 생성된 이벤트 객체는 이벤트 핸들러의 첫번째 인수로 자동 전달
+        // 어떤 이벤트가 발생했는지에 따라 그에 맞는 객체 알아서 전달
+
+        // callback함수에 매개변수로 아무이름이나 지정하면 event객체가 생성 
+        // 여기서는 click으로 지정했기 때문에 click을 하면 event 객체가 생성됨
+
+
+    </script>
+</body>
+
+</html>

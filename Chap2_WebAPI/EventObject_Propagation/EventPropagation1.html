@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #fruits {
+        padding: 50px;
+        border: 2px solid skyblue;
+    }
+
+    #fruits>li {
+        background: yellowgreen;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <!-- ul#fruits>li*3 -->
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grape</li>
+    </ul>
+
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        function m(event) {
+            console.log('ul에 클릭 이벤트가 발생!');
+            console.log('이벤트 핸들러가 붙은 타겟 : ' + event.currentTarget);
+            console.log('실제 이벤트가 발생한 요소 : ' + event.target);
+        }
+
+        
+        $fruits.addEventListener('click', m);
+        // ul태그인 fruits에만 이벤트를 걸었는데 li태그를 클릭하면 li태그에서도 이벤트가 발생
+
+        function apple(event) {
+            console.log('apple에 클릭 이벤트가 발생 ')
+            // li의 첫번째 태그에 클릭을 하게 되면 apple()이 먼저 실행되고 이후 부모에 걸린 이벤트도 실행됨
+
+
+            // 이벤트 전파를 중단하고 싶을 때 (버블링을 방지 )
+            event.stopPropagation();
+            // apple함수 이후 m함수가 실행되어 이벤트가 전파되는 것을 방지하기 위해 
+            // $fruits에 걸린 이벤트에 전파되지 않음
+        }
+        $fruits.firstElementChild.addEventListener('click', apple);
+    </script>
+</body>
+
+</html>
