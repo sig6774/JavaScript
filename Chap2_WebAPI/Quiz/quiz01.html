@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        1. 다음체크 박스 버튼을 글릭했을 때 동의했습니다! 경고창 띄우고 value 값을 같이 찍어어함
+
+     -->
+    <input type="checkbox" value="1">조항1
+    <input type="checkbox" value="2">조항2
+    <input type="checkbox" value="3">조항3
+    <input type="checkbox" value="4">조항4
+    <input type="checkbox" value="5">조항5
+
+    <script>
+        const $ty = document.querySelectorAll('input');
+        console.log($ty);
+        const $ty_li = Array.from($ty);
+        // 유사배열이기 때문에 진짜 배열로 변경
+
+        function check(event) {
+            console.log(event.target);
+            event.target.checked ? alert(`동의했습니다. ${event.target.value}`) : '';
+            // checked가 핵심이고 조건문 대신 삼항 연산자 사용
+        }
+
+        for (let $a of $ty_li) {
+            $a.addEventListener('click', check);
+        }
+    </script>
+    <!-- 
+        2. 확인 버튼을 클릭했을 때 input 태그의 공백여부, 체크 여부 확인
+     -->
+    ID : <input type="text" id="id">
+    기억하기 <input type="checkbox" id="remember">
+    
+    <button id="check2">확인</button>
+    <script>
+        const $id = document.getElementById('id');
+        const $ch = document.getElementById('remember');
+        const $btn = document.getElementById('check2');
+        console.log($ch);
+
+        function ck(event) {
+            if ($id.value.length === 0) {
+                alert('아이디를 입력하세요')
+            } else if (!$ch.checked) {
+                alert('체크박스를 입력하지 않았습니다.')
+            }
+        }
+        // 아이디를 입력하지 않았거나 체크박스에 체크를 하지 않았을 때 경고창을 띄어주는 함수
+
+        $btn.addEventListener('click', ck);
+        // button에 이벤트가 발생했을 때 함수 발동
+    </script>
+
+</body>
+
+</html>

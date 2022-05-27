@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        이벤트와 innerHTML or textContent를 활용하여 
+        카운트를 누적해서 올리거나 내려주세요
+        0아래로는  X
+    -->
+    <h2>
+        자바스크립트 카운트
+    </h2>
+    <input type="text" id="result" value="0" readonly>
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+
+    <script>
+        const $c = document.getElementById('result');
+        const $p = document.getElementById('plus');
+        const $m = document.getElementById('minus');
+
+        console.log($c);
+        console.log($c.attributes.value);
+
+        $p.onclick = function () {
+            let value = $c.getAttribute('value');
+            value++;
+            $c.setAttribute('value', value);
+        }
+
+        $m.onclick = function () {
+            let value = $c.getAttribute('value');
+            if (+value === 0) {
+                alert('0미만으로는 내릴 수 없습니다.');
+                return;
+
+            }
+            value--;
+            $c.setAttribute('value', value);
+        }
+    </script>
+</body>
+
+</html>

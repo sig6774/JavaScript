@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .root {
+        width: 500px;
+        height: 500px;
+        background: blue;
+    }
+
+    .parent {
+        width: 50%;
+        height: 50%;
+        /* root의 50% */
+        background: orange;
+    }
+
+    .child {
+        width: 50%;
+        height: 50%;
+        /* parent의 50% */
+        background: chartreuse;
+    }
+</style>
+
+<body>
+
+    <a href="https://www.naver.com">네이버로 이동</a>
+
+    <br>
+
+    <div class="root">
+        <div class="parent">
+            <div class="child"></div>
+        </div>
+    </div>
+
+    <script>
+        function a(event) {
+            alert('root 클릭 확인');
+        }
+
+        function b(event) {
+            alert('parent 클릭 확인');
+            // event.stopPropagation();
+            // parent에서만 event가 실행될 수 있도록 함
+        }
+
+        function c(event) {
+            alert('child 클릭 확인');
+            // event.stopPropagation();
+            // child에서만 event가 실행될 수 있도록 함
+        }
+
+        document.querySelector('.root').addEventListener('click', a, true);
+
+        document.querySelector('.parent').addEventListener('click', b, true);
+        // addEventListener의 매개값으로 true를 주게 되면 capturing(버블링 반대) 실행 
+
+        document.querySelector('.child').addEventListener('click', c);
+
+
+        // a태그에 event 걸기 
+        const $link = document.querySelector('a');
+
+        function d(event) {
+            if (!confirm('정말 이동하시겠어요?')) {
+
+                // 사용자가 취소를 누르게 되면 현재 페이지에 머무르도록
+                event.preventDefault();
+                // 태그의 고유 기능을 막음 
+
+            }
+        }
+        $link.addEventListener('click', d);
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>

@@ -13,11 +13,18 @@
             list-style: none;
             padding: 0;
             font-weight: bold;
+            font-size: 30px;
         }
 
         #fruits li {
             width: 100px;
             cursor: pointer;
+        }
+
+        #fruits .active {
+            color: blue;
+            text-decoration: underline;
+            text-align: center;
         }
     </style>
 </head>
@@ -25,7 +32,7 @@
 <body>
 
     <ul id="fruits">
-        <li id="apple">APPLE</li>
+        <li id="apple" class="active">APPLE</li>
         <li id="banana">BANANA</li>
         <li id="grape">GRAPE</li>
         <li id="strawberry">STRAWBERRY</li>
@@ -34,21 +41,83 @@
 
     <div>선택된 과일 : <em class='msg'>apple</em></div>
 
+    <br>
+
+    # 새로운 과일 추가 :
+    <input type="text" class="text-box">
+    <button id="add">추가</button>
+
     <script>
-        // li가 많기 때문에 각각 event를 걸어주는 것을 비효율적
         const $fruits = document.getElementById('fruits');
         const $msg = document.querySelector('.msg');
+        const $liList = [...$fruits.children];
+
+
 
         // 이벤트 핸들러 함수 
-        function activate(event){
+        function activate(event) {
 
             // 이벤트 발생 타깃이 특정 요소인지 검증 
-            console.log('메롱~');
+            // li에만 이벤트가 발생하도록 
+            if (!event.target.matches('#fruits > li')) {
+                // matches() : 선택자를 사용하여 이벤트 발생 요소를 검증
+                // fruits안에 li가 매칭이 안된다면 이벤트가 발생하면 안되는 곳 
+                console.log('여기는 이벤트가 발생하면 안됩니당~');
+                return;
+                // 이벤트 강제 종료 
+
+            } else {
+                // console.log('여기는 이벤트가 발생해도 됨');
+
+                for (let $target of $liList) {
+                    // li요소들이 하나씩 들어옴 
+
+                    // toggle 메서드의 두번째 매개값으로 논리값을 전달할 수 있고 
+                    // 해당 논리값이 true로 판명나면 지정한 클래스를 추가하고
+                    // false로 판명나면 지정한 클래스를 삭제
+                    $target.classList.toggle('active', $target === event.target);
+                    // toggle은 있으면 삭제해주고 없으면 생성해줌 
+                    // toggle은 조건을 걸어줄 수 있음 
+
+                }
+                $msg.textContent = event.target.textContent;
+
+                // msg태그의 text부분을 현재 이벤트가 발생한 부분의 텍스트를 가져와서 넣음 
+            }
+        }
+        // ul에 event를 등록 (li가 많아서 하나씩 걸어주기 귀찮음 )
+        $fruits.addEventListener('click', activate);
+
+        
+        // 동적으로 과일 추가 기능 
+        const $btn = document.getElementById('add');
+        const $textBox = document.querySelector('.text-box');
+
+        function cl(event) {
+            const $newLi = document.createElement('li');
+            // li요소 생성 
+
+            $newLi.textContent = $textBox.value;
+            // 새롭게 생성한 li요소에 textbox에 저장되어 있는 값을 넣어줌
+
+            $newLi.setAttribute('id', $textBox.value.toLowerCase());
+            // 새롭게 만든 li요소에 id 추가
+
+            $fruits.appendChild($newLi);
+            $textBox.value = '';
+            // 다시 입력받을 수 있도록 비워줌
+
+            $liList.push($newLi);
+            // 새롭게 추가된 li에도 이벤트를 부여하기 위해 위에 있는 $liList추가
+            // 중요 
 
         }
 
-        // ul에 event를 등록 (li가 많아서 하나씩 걸어주기 귀찮음 )
-        $fruits.addEventListener('click', activate);
+        
+        // 버튼에 event 등록 
+        $btn.addEventListener('click', cl);
+        // li가 많기 때문에 각각 event를 걸어주는 것을 비효율적
+
 
     </script>
 </body>
