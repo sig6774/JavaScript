@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="users">
+        <li data-user-id="Moon123" data-role="common" id="1">Moon</li>
+        <li data-user-id="Lee456" data-role="admin" id="2">Lee</li>
+    </ul>
+
+    <script>
+        const $users = document.getElementById('users');
+        // ul 태그값 가져옴
+
+        // 배열 디스트럭처링
+        const [$user1, $user2] = [...$users.children];
+
+        /*
+        data- 로 시작하는 어트리뷰트와 dataset 프로퍼티를 사용하면 HTML요소와 자바스크립트 간에 데이터를 쉽게 교환할 수 있음
+        data- 뒤에는 원하시는 특정 키워드를 작성하고 dataset 프로퍼티를 이용하여 data+키워드 로 값을 가지고 오면 됨
+        */
+        console.log($user1.getAttribute('data-role'));
+        console.log($user1.dataset);
+        // dataset은 data- 키워드를 가져올 수 있음
+        console.log($user1.dataset.role);
+        // JS는 케밥케이스(-)로 되어 있는 data-속성을 카멜케이스로 변환해서 가져올 수 있음
+        console.log($user1.dataset.userId);
+        // dataset이라는 프로퍼티를 통해서 data
+
+        $user2.dataset.role = 'anonymous';
+        $user2.dataset.userTelNumber = '010-1234-5678';
+        // 속성을 추가 및 값 변경 가능
+
+        // body 태그를 얻는 법 
+        const $body = document.body;
+
+
+        
+        // html 태그를 얻는 법 
+        const $html = document.documentElement;
+    </script>
+</body>
+
+</html>

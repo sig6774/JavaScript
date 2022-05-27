@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Grape</li>
+    </ul>
+
+    <script>
+        const $fruits = document.getElementById('fruits');
+
+        const $children = $fruits.children;
+
+
+        // 배열 디스트럭처링 
+        const [$apple, $banana, $grape] = [...$fruits.children];
+        // $fruits.children은 유사배열 객체이므로 진짜 객체로 바꿔주고 배열 디스트럭처링 진행 
+
+        // 요소 추가
+        const $mango = document.createElement('li');
+        $mango.textContent = 'Mango';
+
+        // 노드 추가 (맨 마지막)
+        $fruits.appendChild($mango);
+
+        // 노드 이동
+        $fruits.appendChild($banana);
+        // banana는 있는 거라서 추가가 되지 않고 맨 마지막으로 내려옴
+        
+        $fruits.insertBefore($apple, $mango);
+        // apple이 mango 앞으로 이동
+
+
+
+        // apple - mango -grape - banana 순서로 옮기기 
+        // $fruits.appendChild($grape);
+        // $fruits.appendChild($banana);
+
+        $fruits.insertBefore($grape, $fruits.lastElementChild);
+        // 이것도 가능
+    </script>
+</body>
+
+</html>

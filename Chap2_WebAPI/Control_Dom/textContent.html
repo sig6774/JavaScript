@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="greeting">
+        Hello
+        <span>World</span>
+    </div>
+
+    <script>
+        const $div = document.getElementById('greeting');
+        // console.log($div.childNodes[0].nodeValue);
+        console.log($div.textContent)
+        // div 태그안에 있는 모든 텍스트만 가져와라 (마크업 제외)
+
+
+        $div.textContent = '<span>안녕</span>하세요';
+        // 태그를 작성해도 텍스트로 인식
+    </script>
+
+</body>
+
+</html>

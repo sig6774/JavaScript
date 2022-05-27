@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id = "btn" onclick="gretting()">클릭하세요</button>
+    <!-- onclick은 클릭을 하게 되면 gretting함수를 불러옴 -->
+    <button id = "btn2" onmouseenter="greeting()">마우스를 올리세요</button>
+    <!-- 마우스를 올리면 gretting함수 불러옴 -->
+    <button id = "btn3" onmouseleave="greeting()">마우스를 치우세요</button>
+    <!-- 마우스를 치우면 gretting함수 불러옴 -->
+
+    <script>
+
+        // 이벤트 핸들러 (브라우저에게 전해줄 콜백 함수) 정의
+        function greeting () {
+            alert('안녕하세요');
+        }
+
+    </script>
+</body>
+
+</html>

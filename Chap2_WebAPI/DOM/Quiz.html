@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- ul#list>li*7{리스트$} 
+    ul의 id는 list이고 li안에는 리스트숫자형태-->
+    <ul id="list">
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+        <li>리스트4</li>
+        <li>리스트5</li>
+        <li>리스트6</li>
+        <li>리스트7</li>
+    </ul>
+
+    <script>
+        //1. id = "list"인 요소에 <li> 요소 중 
+        //홀수번째 요소만 선택 후 배경색상 yellow 적용.
+
+        //2. id="list"인 요소에 <li> 요소중 짝수번째 요소만
+        //선택 후 배경색상 gray 적용.
+
+        const $f = document.querySelectorAll('#list > li');
+        // id가 list인 li요소의 유사 객체 반환
+        console.log($f);
+        // for (let i = 0; i < $f.length; i++){
+        //     if (i % 2 != 0) {
+        //         $f[i].style.background = 'yellow';
+        //     }else{
+        //         $f[i].style.background = 'gray';
+        //     }
+        // }
+
+
+
+        const real = Array.from($f);
+        console.log(real);
+        for (let i = 0; i < real.length; i++) {
+            if (i % 2 != 0) {
+                real[i].style.background = 'yellow';
+            } else {
+                real[i].style.background = 'gray';
+            }
+        }
+
+        real.forEach($li => $li.style.background = 'gray');
+        // 이렇게도 사용가능 
+        // 배열과 nodelist는 사용가능하지만 다른 곳에서는 사용x
+
+
+
+
+        //3. id="list"인 요소에 <li> 요소중 첫번째 li 요소만
+        //선택 후 폰트 색상 red 적용.
+        real[0].style.color = 'red';
+
+        //4. id="list"인 요소에 <li> 요소중 마지막 li 요소만
+        //선택 후 폰트 색상 green 적용.
+        real[6].style.color = 'green';
+
+        //5. id="list"인 요소에 <li> 요소 중 두번째 li요소만
+        //선택 후 이탤릭체 적용.
+        real[0].style.fontStyle = 'italic';
+
+        //6. id="list"인 요소에 <li> 요소 중 3번째 이전 요소만
+        //경계선을 2px dotted aqua 적용. (1, 2번째만 선택)
+
+        //7. id="list"인 요소에 <li> 요소 중 3번째 이후 요소만
+        //경계선을 2px dashed violet 적용 (3번째부터 끝까지 선택)
+        for (let i = 0; i < real.length; i++) {
+            if (i < 2) {
+                real[i].style.border = '2px dotted aqua';
+            } else {
+                real[i].style.border = '2px dashed violet';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

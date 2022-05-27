@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="name" value="lee" class="user-name">
+    <p id='text'>Hello</p>
+
+    <script>
+        const $input = document.querySelector('input[type="text"]');
+        // 다양한 방법으로 선택할 수 있음
+
+        // input의 value 속성 값을 얻고 싶음
+        const inputValue = $input.getAttribute('value');
+        // input 태그의 value라는 이름의 값을 가져옴
+
+        $input.setAttribute('value', '안녕하세요~');
+        // input 태그의 value라는 이름의 값을 안녕하세요로 변경
+
+        // p태그에 title 속성 추가
+        const $paragraph = document.getElementById('text');
+        $paragraph.setAttribute('title', '메롱');
+
+        console.log($paragraph.hasAttribute('class'));
+
+        if (!$input.hasAttribute('class')) {
+            // class가 없다면 생성 
+            $input.setAttribute('class', '클래스~');
+        } else {
+            $input.removeAttribute('class');
+        }
+        $paragraph.removeAttribute('class');
+    </script>
+
+</body>
+</html>
