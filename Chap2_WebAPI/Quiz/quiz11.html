@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        thead th,
+        tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>이벤트 위임 방식 </h2>
+    <table>
+        <thead>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>삭제</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>첫번째 글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>두번째 글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+
+
+            <tr>
+                <td>3</td>
+                <td>세번째 글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>네번째 글</td>
+                <td>hi</td>
+                <td><button>삭제</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+        const $d = document.querySelector('tbody');
+        console.log($d);
+
+        // const $btn = document.querySelector('button');
+        // console.log($btn);
+        function DELETE(event) {
+            console.log(event.target);
+            if (!event.target.matches('button')) {
+                return;
+            }
+            event.target.parentNode.parentNode.remove();
+            // 버튼의 부모의 부모를 지우면 다 없어짐
+            // 즉 삭제 버튼이 포함된 tr을 삭제하면됨 
+            
+            // 버튼만 지울려고 했으니깐 에러가 나지 ...
+        }
+
+        $d.addEventListener('click', DELETE);
+    </script>
+</body>
+
+</html>

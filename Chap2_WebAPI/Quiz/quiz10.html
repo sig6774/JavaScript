@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul li {
+            display: inline-block;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h3>다중 이벤트 </h3>
+    <div>
+        <ul>
+            <li><img src="./img/1.jpg" alt="1" width="100px"></li>
+            <li><img src="./img/2.jpg" alt="2" width="100px"></li>
+            <li><img src="./img/3.jpg" alt="3" width="100px"></li>
+            <li><img src="./img/4.jpg" alt="4" width="100px"></li>
+        </ul>
+        결과 :
+        <div class="result">
+            <img src="./img/1.jpg" alt="결과" width="300px">
+        </div>
+    </div>
+
+    <script>
+        const $result = document.querySelector('.result > img');
+        console.log($result);
+
+        const $img = document.querySelectorAll('ul > li > img');
+        // 반복문을 사용하기 위해 
+        console.log($img);
+
+        function a(event) {
+
+            console.log(event.target.src);
+            $result.src = event.target.src;
+
+            // 이벤트가 발생한 곳을 event가 알려줌
+        }
+
+        // for (var $e of $img){
+        //     console.log($e);
+        //     $e.addEventListener('click', a);
+        // }
+        // 반복문을 사용하면 되기는 하지만 뭔가 더 간단하게 할 수 있을 것 같다.
+
+        const $parent = document.querySelector('ul');
+        // 부모에 이벤트를 걸면 자식도 이벤트가 걸리므로 
+        $parent.addEventListener('click', a);
+        // 어떤 사진을 선택하는지는 이벤트가 알려주므로 상관 x
+
+        // 다른 방법 
+        // $parent.addEventListener('click', function(e){
+        //     if(!e.target.matches('ul > li > img')){
+        //         return;
+        //     }
+        //     $result.setAttribute('src', e.target.src);
+        // })
+    </script>
+</body>
+
+</html>

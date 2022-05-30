@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .toggle li {
+            display: inline-block;
+            padding: 15px 20px 14px;
+            width: 25%;
+            text-align: center;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .toggle-menu {
+            display: none;
+
+        }
+
+        .active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <ul class="toggle">
+        <li data-id="#toggle1">메뉴1</li>
+        <li data-id="#toggle2">메뉴2</li>
+        <li data-id="#toggle3">메뉴3</li>
+    </ul>
+
+    <div>
+        <div class="toggle-menu active" id="toggle1">
+            토글메뉴 1
+        </div>
+        <div class="toggle-menu" id="toggle2">
+            토글메뉴 2
+        </div>
+        <div class="toggle-menu" id="toggle3">
+            토글메뉴 3
+        </div>
+    </div>
+    <script>
+        /*
+        1. ul에 이벤트 전파 이용해서 클릭이벤트를 걸고
+         클릭되는 타겟의 data-id를 얻습니다.
+        2. toggle-menu의 active속성을 삭제
+        3. data-id 값에 알맞는 태그에 active속성 추가.
+        */
+
+        // const $ul = document.querySelector('ul');
+        // console.log($ul);
+        // const ID = $ul.querySelector('li').dataset.id;
+        // console.log(ID.substr(1, ID.length));
+        // const $d = document.querySelector('#toggle1');
+        // console.log($d.id);
+        // const $d2 = document.querySelector('#toggle2');
+        // const $d3 = document.querySelector('#toggle3');
+        // const $menu = document.querySelector('.toggle-menu')
+
+        // function g(event) {
+        //     // const ID = $ul.querySelector('li').dataset.id;
+        //     var p = event.target.dataset.id;
+        //     console.log(p.substr(1, p.length));
+        //     let pick = p.substr(1, p.length);
+        //     $menu.classList.remove('active');
+
+        //     if (pick === $d.id){
+        //         $d.classList.add('active');
+        //     } else if (pick === $d2.id){
+        //         console.log($d2.id);
+        //         console.log(pick);
+        //         $d2.classList.add('active');
+        //     } else{
+        //         $d3.classList.add('active');
+        //     }
+        // }
+
+        // $ul.addEventListener('click', g);
+        // 위 코드는 한계가 있음 수정이 필요 
+
+
+
+        const $toggle = document.querySelector('.toggle');
+
+        $toggle.onclick = function (e) {
+            if (!e.target.matches('.toggle>li')) {
+                return;
+            }
+
+            const $togglelist = document.querySelectorAll('.toggle-menu');
+
+            for (let $ele of $togglelist) {
+                $ele.classList.toggle('active', '#' + $ele.id === e.target.dataset.id);
+                // toggle함수를 사용해서 훨씬 쉽게 끝내네... 지린다잉 ...
+            }
+
+            // for(let i = 0; i<$togglelist.length; i++){
+            //     if($togglelist[i].classList.contains('active')){
+            //         $togglelist[i].classList.remove('active');
+            //     }
+            // }
+
+            // const tar = e.target.dataset.id;
+            // document.querySelector(tar).classList.add('active');
+            // substr할 필요없이 queryselector에 넣으면 되네 
+        }
+    </script>
+</body>
+
+</html>
