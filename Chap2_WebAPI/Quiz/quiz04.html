@@ -7,6 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .hide{
+            display : none;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,6 +34,20 @@
         힌트: display: none; (CSS)
         클래스 이름을 변경해서 style 태그에 display를 지정.
         */
+
+        const $hider = document.getElementById('hider');
+        const $text = document.getElementById('text');
+
+        function a(event){
+            if ($text.classList.contains('hide')){
+                $text.classList.remove('hide');
+                $hider.textContent = '텍스트 숨기기!';
+            } else{
+                $text.classList.add('hide');
+                $hider.textContent = '텍스트 보이기!';
+            }
+        }
+        $hider.addEventListener('click', a );
     </script>
 </body>
 

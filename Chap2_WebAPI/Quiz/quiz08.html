@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h2>할일 목록 만들기</h2>
+    <div class="name-form">
+        <h3 class="name-title"></h3>
+        <input type="text" placeholder="이름을 입력하세요" class="name-input">
+        <button class="btn1">확인</button>
+    </div>
+
+    <div class="todo-form">
+        <input type="text" placeholder="당신의 할일을 적으세요" class="todo-input">
+        <button class="btn2">확인</button>
+    </div>
+
+    <ul class="todo-list">
+
+    </ul>
+
+    <script>
+        /*
+        1. 입력받은 이름값을 h3에 띄워주세요.
+        이름이 입력되었다면 이름 입력창을 숨겨주세요.
+
+        2. 할일을 입력받아서 li요소로 추가해 주세요.
+        그 후 입력창은 비워주세요.
+        
+        3. 할일이 추가되면 X버튼이 같이 생성됩니다.
+        X버튼을 클릭했다면 해당 할 일을 지워주세요.
+        */
+
+        // display : none 
+        // X버튼 누를 시 이벤트 발생 (X버튼을 품고 있는 부모 노드 삭제)
+
+        // 입력창 숨기고 값을 화면에 보여주는 로직 
+        const $nameForm = document.querySelector('.name-form');
+        const $nametitle = document.querySelector('.name-title');
+        const $nameInput = document.querySelector('.name-input');
+        console.log($nametitle);
+
+        function name(event) {
+            $nameInput.style.display = 'none';
+            $btn1.style.display = 'none';
+            $nametitle.textContent = $nameInput.value + '님 안녕하세요.';
+            console.log($nameInput.value);
+
+        }
+
+        const $btn1 = document.querySelector('.btn1');
+        $btn1.addEventListener('click', name);
+
+        // 할일 추가하는 로직 
+        const $todoInput = document.querySelector('.todo-input');
+        const $todolist = document.querySelector('.todo-list');
+        console.log($todo);
+
+        // function insert(event) {
+        //     const $li = document.createElement('li');
+        //     $li.textContent = $todoInput.value;
+        //     $todolist.appendChild($li);
+        //     const $bt = document.createElement('button');
+        //     $bt.textContent = 'X';
+        //     $todolist.appendChild($bt);
+        //     $todoInput.value = '';
+        //     // 값 비워주기 
+        //     $bt.addEventListener('click', DELETE)
+        // }
+
+        // function DELETE(event) {
+        //     $todolist.remove($todolist.lastChild);
+        // }
+
+        function handelTodo() {
+            createTodo($todoInput.value);
+            $todoInput.value = '';
+        }
+
+        function createTodo(text) {
+            // li생성 
+            const $li = document.createElement('li');
+            $li.textContent = text;
+
+            // 버튼 생성 
+            const $delBtn = document.createElement('button');
+            $delBtn.textContent = 'X';
+
+            // li에 x버튼 삽입 
+            $li.appendChild($delBtn);
+
+            // li를 ul에 추가 
+            document.querySelector('.todo-list').appendChild($li);
+
+            // 삭제 버튼 클릭 시 이벤트 발생 
+            // li에 추가될 때 이벤트를 삽입
+            $delBtn.addEventListener('click', () => {
+                document.querySelector('.todo-list').removeChild($delBtn.parentNode);
+
+            });
+        }
+
+        // 삭제 연산
+        // function del(event) {
+        //     document.querySelector('.todo-list').removeChild($delBtn.parentNode);
+        // }
+
+        const $btn2 = document.querySelector('.btn2');
+        $btn2.addEventListener('click', handelTodo);
+    </script>
+
+</body>
+
+</html>
