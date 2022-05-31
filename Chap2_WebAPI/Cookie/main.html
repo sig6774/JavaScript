@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./popup.js"></script>
+</head>
+<body>
+    <h2>메인 화면</h2>
+
+    <div>
+        메인 페이지
+    </div>
+
+    <script>
+        window.onload = function() {
+            // 페이지가 로딩이 완료된다면 이벤트를 걸어줌
+            
+            // 팝업창을 띄울 때 쿠키를 먼저 확인하고 쿠키가 없는 경우 팝업창 실행 
+            if(!getCookie('popup')){
+                // 쿠키가 없다면
+                window.open('./popup.html', '팝업창', 'width = 300, height = 300 top = 200 left = 300');
+
+
+            }
+        }
+    </script>
+</body>
+</html>
