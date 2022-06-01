@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 
 <head>
@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./main.css">
 
     <!-- custom js-->
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
     <style>
         .lnr-star{
             font-size: 50px;
@@ -26,8 +26,6 @@
 </head>
 
 <body>
-
-    <span class="lnr lnr-star"></span>
 
     <div class="wrapper">
         <section class="todo-template">
@@ -40,7 +38,7 @@
                 <ul class="todo-list">
                     <li data-id="1" class="todo-list-item">
                         <label class="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" class = "ck">
                             <span class="text">할 일1</span>
                         </label>
                         <div class="modify">
@@ -52,7 +50,7 @@
                     </li>
                     <li data-id="2" class="todo-list-item">
                         <label class="checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" class = "ck">
                             <span class="text">할 일2</span>
                         </label>
                         <div class="modify">
@@ -63,8 +61,8 @@
                         </div>
                     </li>
                     <li data-id="3" class="todo-list-item">
-                        <label class="checkbox">
-                            <input type="checkbox">
+                        <label class="checkbox" >
+                            <input type="checkbox" class = "ck">
                             <span class="text">할 일3</span>
                         </label>
                         <div class="modify">
