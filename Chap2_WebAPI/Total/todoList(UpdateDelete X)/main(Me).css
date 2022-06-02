@@ -69,13 +69,14 @@ a{
     /* border: 1px solid black; */
     padding-top: 20px;
 }
-.checkbox input{
+.checkbox .ck{
     width: 20px;
     height: 20px;
 
 }
 .checkbox .text{
     font-size: 30px;
+    width: 100%;
     /* border: 1px solid black; */
 
 }

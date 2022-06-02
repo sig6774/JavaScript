@@ -17,10 +17,6 @@ const todos = [{
 
 ];
 
-// function add_click(event){
-
-// }
-
 const $list = document.querySelector('.todo-list');
 function add($text) {
     console.log($text);
@@ -96,11 +92,29 @@ function updatecontent(event){
     let oldtag = $checkbox.querySelector('.text');
     console.log(oldtag);
 
+    let text = oldtag.textContent;
     // 가상 dom으로 input 값 만들어서 교체해버릴까?
     let newtag = document.createElement('input');
+    newtag.setAttribute('type', 'text');
+    newtag.setAttribute('placeholder', text);
+    newtag.setAttribute('onkeyup', 'if(window.event.keyCode==13){ function r(newtag.value = event.target.value)}');
+    
+    // 수정 버튼을 클릭하게 되면 input 태그로 바뀌면서 수정 모드 진입
     console.log(newtag);
     $checkbox.replaceChild(newtag, oldtag);
     // 태그 바뀜
+
+    function enter(event){
+        if (window.event.keyCode == 13){
+            console.log(event.target.value);
+            newtag.value = event.target.value;
+        }
+
+    }
+    // 엔터치면 값을 넣어줌
+    newtag.addEventListener('Enter', enter);
+
+
 
     
 
@@ -111,6 +125,7 @@ function updatecontent(event){
     // 수정할 값 넣기
 
 }
+
 
 
 
