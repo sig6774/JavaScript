@@ -70,8 +70,6 @@ function makeNewId() {
     }
 }
 
-// ========================================================================
-// 할 일 수정 
 
 // 화면에 표현할 .todo-list-item 노드를 생성하는 함수 정의 
 function makeNewToDoNode(newTodo) {
@@ -79,7 +77,7 @@ function makeNewToDoNode(newTodo) {
     const $label = document.createElement('label');
     const $divMod = document.createElement('div');
     const $divRemove = document.createElement('div');
-
+    
     // label 태그 작업
     $label.classList.add('checkbox');
     const $check = document.createElement('input');
@@ -90,22 +88,22 @@ function makeNewToDoNode(newTodo) {
     $span.textContent = newTodo.text;
     $label.appendChild($check);
     $label.appendChild($span);
-
+    
     // $label.innerHTML = `<input type = "checkbox">
     // <span class="text">${newTodo.text}</span>`;
-
+    
     // 수정 div 태그 작업
     $divMod.classList.add('modify');
     const $modIcon = document.createElement('span');
     $modIcon.classList.add('lnr', 'lnr-undo');
     $divMod.appendChild($modIcon);
-
+    
     // 삭제 div 태그 작업
     $divRemove.classList.add('remove');
     const $removeIcon = document.createElement('span');
     $removeIcon.classList.add('lnr', 'lnr-cross-circle');
     $divRemove.appendChild($removeIcon);
-
+    
     // li태그 작업 
     $li.dataset.id = newTodo.id;
     // data-id에 값을 넣어줌 
@@ -120,6 +118,8 @@ function makeNewToDoNode(newTodo) {
 }
 
 
+// ========================================================================
+// 할 일 수정 
 
 // 인덱스를 가져오는 함수
 function findIndexByDataId(dataIndex) {
@@ -279,7 +279,6 @@ function updateevent(event){
 
     // 할 일 완료 이벤트    
     const $todoList = document.querySelector('ul.todo-list');
-
     $todoList.addEventListener('change', changeevent);
 
     // 할 일 삭제 이벤트
