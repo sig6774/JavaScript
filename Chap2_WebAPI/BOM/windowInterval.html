@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button class="stopInterval">STOP</button>
+    <script>
+        // setInterval() : 일정 시간마다 함수를 반복 실행 
+        // 매개변수로 (실행 함수, 인터벌 시간(밀리초))이 들어감
+        function a() {
+            console.log(1);
+        }
+        const stop = setInterval(a, 500);
+        // 함수와 500밀리초 간격으로 실행 
+        // console에 1을 출력하는 것을 0.5초마다 반복
+
+        document.querySelector('.stopInterval').onclick = function () {
+            clearInterval(stop);
+            // interval을 멈추고자 하면 clearInterval을 통해서 실행 
+            // 이벤트로 stop이라는 버튼을 누르면 interval이 종료
+        }
+    </script>
+</body>
+
+</html>

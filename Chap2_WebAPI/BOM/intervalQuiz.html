@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .main-banner1 {
+            background: linear-gradient(90deg, #0c151c 1.3125rem, transparent 1%) 50%, linear-gradient(#0c151c 1.3125rem, transparent 1%) 50%, #263747;
+            background-size: 1.5rem 1.5rem;
+            padding: 6rem 0;
+            color: #fff;
+            text-align: center;
+        }
+
+        .main-banner1 img {
+            display: none;
+            position: relative;
+            animation: topIn .5s linear;
+        }
+
+        @keyframes topIn {
+            from {
+                top: -50px;
+                opacity: 0;
+            }
+
+            to {
+                top: 0px;
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-banner1">
+        <img src="./img/1.jpg" alt="pic" width="200px">
+        <img src="./img/2.jpg" alt="pic" width="200px">
+        <img src="./img/3.jpg" alt="pic" width="200px">
+        <img src="./img/4.jpg" alt="pic" width="200px">
+        <img src="./img/1.jpg" alt="pic" width="200px">
+        <img src="./img/2.jpg" alt="pic" width="200px">
+        <img src="./img/3.jpg" alt="pic" width="200px">
+        <img src="./img/4.jpg" alt="pic" width="200px">
+        <img src="./img/1.jpg" alt="pic" width="200px">
+        <img src="./img/2.jpg" alt="pic" width="200px">
+        <img src="./img/3.jpg" alt="pic" width="200px">
+        <img src="./img/4.jpg" alt="pic" width="200px">
+        <img src="./img/1.jpg" alt="pic" width="200px">
+        <img src="./img/2.jpg" alt="pic" width="200px">
+        <img src="./img/3.jpg" alt="pic" width="200px">
+        <img src="./img/4.jpg" alt="pic" width="200px">
+        <img src="./img/1.jpg" alt="pic" width="200px">
+        <img src="./img/2.jpg" alt="pic" width="200px">
+        <img src="./img/3.jpg" alt="pic" width="200px">
+        <img src="./img/4.jpg" alt="pic" width="200px">
+    </div>
+    <script>
+        // 사진은 한장씩 반복해서 띄어주며 0.3초 간견으로 띄어주면 됨
+        // 사진을 띄우는 방법은 display속성을 inline으로 변경
+        // 사진을 모두 다 띄었으면 interval함수 종료
+        // 새로고침이 10초마다 반복되도록 설정(location.reload();
+
+
+        let inter;
+        let index = 0; 
+        // 인덱스 변수를 만들어주는게 point네 
+        
+        function changeImg() {
+            const $list = document.querySelector('.main-banner1');
+            $list.children[index].style.display = 'inline';
+            // 반복문을 사용하지 않고 index를 올려주는  방식으로 진행
+            index++;
+
+            if (index === $list.children.length){
+                clearInterval(inter);
+            }
+
+        }
+        inter = setInterval(changeImg, 300);
+
+        setInterval(function() {
+            location.reload();
+        }, 10000);
+    </script>
+
+</body>
+
+</html>

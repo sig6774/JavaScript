@@ -1,0 +1,129 @@
+/* reset */
+a{
+    color: inherit;
+
+    text-decoration: none;
+}
+
+.wrapper {
+    font-size : 18px;
+    background-color: antiquewhite;
+    height: 100vh;
+    position : relative;
+}
+
+/* 전체 내용이 들어갈 구간 */
+.todo-template {
+    width: 40%;
+    height: 30%;
+    background: wheat;
+    border-radius: 20px;
+    position : absolute;
+    /* 부모인 wrapper에 의해서 움직임 */
+
+    left: 30%;
+    top: 30%;
+    transform: translate((-50%, -50%));
+    overflow: auto;
+}
+
+/* 내용의 제목 부분 */
+.todo-template .app-title{
+    padding: 30px 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    background-color: skyblue;
+    border-bottom: 2px solid black;
+}
+
+/* 할 일 삽입 부분 */
+.todo-insert{
+    padding: 10px 5px;
+    background-color: gray;
+    height: 30px;
+    position: inherit;
+}
+
+#todo-text::placeholder{
+    color: white;
+    font-size: 15px;
+    padding: 5px 5px;
+    display: inline-block;
+}
+
+/* 모형  */
+#add{
+
+    text-align: center;
+    background: lightgray;
+    /* display: inline-block; */
+    height: 40px;
+    width: 15%;
+    float: right;
+    font-size: 30px;
+}
+
+/* 할 일  */
+.todo-list{
+    /* border: 1px solid black; */
+    padding-top: 20px;
+}
+.checkbox input{
+    width: 20px;
+    height: 20px;
+
+}
+.checkbox .text{
+    font-size: 30px;
+    /* border: 1px solid black; */
+
+}
+
+/* 할 일 모형(수정 삭제) */
+.modify{
+    position: absolute;
+    left: 85%;
+}
+
+.remove{
+    position: absolute;
+    left:90%
+}
+
+/* 체크박스 체크되면 티나게 하는 스타일 */
+.checked{
+    text-decoration: line-through;
+    opacity: 0.7;
+    background: lightgray;
+
+}
+
+
+
+input,button{
+    background: none;
+    outline: none;
+    border: none;
+}
+
+
+/* 삭제 모션 */
+.delMoving {
+    animation: delMove 1.5s ease-in-out;
+}
+@keyframes delMove {
+    0% {
+        background: orange;
+        transform: translateX(20px);
+    }
+    50% {
+        background: orangered;
+        transform: translateX(-500px);
+    } 
+    100% {
+        background: red;
+        transform: translateX(-2000px);
+    }
+}
+

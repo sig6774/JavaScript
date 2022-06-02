@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#" name="regForm">
+        아이디: <input type="text" name="id"> <br>
+        비밀번호: <input type="password" name="pw"> <br>
+        번호:
+        <div>
+            <select name="phone">
+                <option>010</option>
+                <option>011</option>
+                <option>018</option>
+            </select>
+            - <input type="text" name="phone2">
+            - <input type="text" name="phone3">
+        </div>
+
+        자기소개: <br>
+        <textarea name="intro" cols="50" rows="5"></textarea>
+        <br>
+
+        분야:
+        <input type="checkbox" name="inter">Java
+        <input type="checkbox" name="inter">DB
+        <input type="checkbox" name="inter">Jsp
+        <input type="checkbox" name="inter">JavaScript
+
+        <button type="button" id="regist" onclick="check()">가입</button>
+        <!-- form태그인데 submit이 없다는 것은 js로 검증을 한뒤에 submit을 시키겠다 라는 뜻-->
+    </form>
+
+    <script>
+
+
+
+        /*
+            form 
+            - form 객체는 문서 객체의 하위 객체 중 하나로 유일하게 name 속성으로만 form 요소의 선택이 가능
+
+            - form에도 name이 있어야하고 name으로 모두 접근할 수 있음 
+            - document.폼이름.인풋이름으로 접근 
+
+            value : 값을 반환 
+            checked : 체크되어 있다면 true, 그렇지 않다면 false
+            disable : 비활성화라면 true, 그렇지 않다면 false
+            length : 요소 길이 반환 
+            focus : 요소에 포커싱 
+            submit : form을 제출 (action에 지정한 경로로)
+            */
+
+        function check() {
+            console.log('check 함수 발동');
+            const $form = document.regForm
+            if ($form.id.value === '') {
+                // form태그안에 name이 id인 값이 없다면 
+                alert('아이디는 필수 입니다.');
+                return;
+            } else if ($form.id.value.length <= 4) {
+                alert('아이디는 4글자 이상으로 작성해야합니다.')
+                return;
+            } else if ($form.pw.value === '') {
+                alert('비밀번호는 필수입니다.');
+                return;
+            } else if ($form.pw.value.length < 8) {
+                alert('비밀번호는 8글자 이상으로 입력하세요');
+                return;
+            } else {
+                const $inter = document.getElementsByName('inter');
+                let flag = false;
+                for (let $ele of $inter) {
+                    if ($ele.checked) {
+                        // inter라는 이름을 가진 check박스가 checked되어 있다면 
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    // 한개도 체크 안헸으면
+                    alert('분야를 한 개 이상 체크하세요');
+                    return;
+                }
+            }
+            if (confirm('회원가입 하시겠습니까?')) {
+                $form.submit();
+                // 여기서 submit을 진행 
+                // 이거 진짜 중요 
+                // 프로젝트를 이렇게 바꿔보기
+            } else {
+                return;
+            }
+        }
+    </script>
+</body>
+
+</html>

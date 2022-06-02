@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 성공 실행할 콜백함수
+        function success(position) {
+            // position이라는 변수를 받음
+            console.log(position);
+            console.log('위도 : ' + position.coords.latitude);
+            console.log('경도 : ' + position.coords.longitude);
+            // position이라는 것을 받아와서 위도 경도 확인
+        }
+
+        // 실패 시 실행할 콜백 함수
+        function fail(error) {
+            alert('위치 정보를 얻는데 실패했습니다. 위치 정보를 승인해주세요.')
+            console.log(error);
+        }
+
+
+        // 즉시 실행 함수
+        (function () {
+            navigator.geolocation.getCurrentPosition(success, fail);
+
+        }());
+    </script>
+
+</body>
+
+</html>
