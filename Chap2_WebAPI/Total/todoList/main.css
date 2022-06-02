@@ -111,6 +111,16 @@ section.todo-template .content .todo-list .todo-list-item .modify{
     /* li를 기준으로 오른쪽으로 50px 떨어지고 각 li요소의 바닥에서 15px 떨어짐 */
 }
 
+/* 실제 수정 모드일 때 스타일 */
+section.todo-template .content .todo-list .todo-list-item .checkbox .mod-input{
+    margin-left: 4rem;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 200px;
+    padding: 4px;
+    font-size: 12px;
+}
+
 /* 삭제 아이콘 */
 section.todo-template .content .todo-list .todo-list-item .remove{
     color: red;
@@ -139,6 +149,8 @@ section.todo-template .content .todo-list .todo-list-item .checkbox.checked{
 .delMoving {
     animation: delMove 1.5s ease-in-out;
 }
+
+
 @keyframes delMove {
     0% {
         background: orange;

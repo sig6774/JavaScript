@@ -195,8 +195,30 @@ function enterModifyMode($modSpan){
 
     $label.replaceChild($modInput, $textspan);
     // 새롭게 만든 input 태그를 기존에 있던 span태그와 교체 
+}
 
+// 수정 완료 이벤트 처리 함수 <- 이거 수정 완료 후 다시 버튼 돌려놓고 값 들어가는게 안됨
+function modifyToDoData($modCompleteSpan){
     
+    // 수정을 완료하면 버튼을 다리 돌려놓음 
+    $modCompleteSpan.classList.replace('lnr-checkmark-circle', 'lnr-undo');
+
+    // input태그를 다시 span.text로 변경 
+    const $label = $modCompleteSpan.parentNode.previousElementSibling;
+    const $modInput = $label.lastElementChild;
+
+    // span 태그 생성 및 값 넣음
+    const $textspan = document.createElement('span')
+    $textspan.textContent = $modInput.value;
+    $textspan.classList.add('text');
+
+    $label.replaceChild($textspan, $modInput);
+    // 태그 바꿔줌
+
+    // 객체에도 수정한 값을 넣어줌
+    const idx = findIndexByDataId(+$label.parentNode.dataset.id);
+    todos[idx].text = $textspan.textContent
+    console.log(todos);
 }
 
 // ====================================================================
@@ -239,7 +261,7 @@ function updateevent(event){
         enterModifyMode(event.target);
         // 수정 모드 진입
     } else if (event.target.matches('.todo-list .modift span.lnr-checkmark-circle')){
-        modifyToDoDate(event.target);
+        modifyToDoData(event.target);
         // 수정모드에서 수정을 확정짓기 위해 
     } else{
         return;
