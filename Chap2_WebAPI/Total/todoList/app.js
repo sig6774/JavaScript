@@ -148,6 +148,7 @@ function changeCheckState($label) {
 
 // ====================================================================
 // 할 일 삭제 
+
 function removeToDoDate($delTarget){
     // 애니메이션 적용을 위해 클래스 이름을 추가
     $delTarget.classList.add('delMoving');
